@@ -16,3 +16,9 @@ class DataFrameReporter:
         print('Количетсво дубликатов: ', duplicates)
 
         print('Доля дупликатов: ', format(duplicates / df.shape[0], self.percent_format))
+
+        print(df.describe(include = 'all' if self.include_all else None))
+
+        print('Количетсво пропусков: ', df.isna().sum().sum())
+
+        print('Доля пропусков: ', format(df.isna().mean(axis = None), self.float_format))
